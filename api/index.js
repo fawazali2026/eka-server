@@ -7,7 +7,7 @@ app.use(express.json());
 let rooms = {};
 app.get('/', (req,res)=> res.send('EKASH Server Running'));
 
-app.all('/', (req,res)=>{
+app.all('*', (req,res)=>{
   const {action,code,name,move} = {...req.query, ...req.body};
   if(action==='create'){
     const c = Math.random().toString(36).substring(2,7).toUpperCase();
